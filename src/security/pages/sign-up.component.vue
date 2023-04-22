@@ -1,7 +1,7 @@
 <template>
 <div class="grid min-h-screen mr-0">
     <div class="col-12 md:col-6 p-0">
-        <img class="w-full h-full" src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=980" alt="man diriving a car">
+        <img class="w-full h-full" src="https://images.pexels.com/photos/190537/pexels-photo-190537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="man diriving a car">
     </div>
     <div class="col-12 md:col-6 p-0 flex justify-content-center">
         <div class="flex flex-column align-items-center justify-content-center" style="max-width: 26rem;">
