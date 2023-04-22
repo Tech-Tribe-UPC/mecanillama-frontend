@@ -5,14 +5,15 @@
     </div>
     <div class="col-12 md:col-6 p-0 flex justify-content-center">
         <div class="flex flex-column align-items-center justify-content-center" style="max-width: 26rem;">
-        <h1 class="text-center text-6xl my-7 font-bold">Join us!</h1>
+        <h1 class="text-center text-3xl mt-5 font-bold">Hey mechanic! Register your business here:</h1>
+        <div class="text-center text-1xl my-2">We are happy you are joining us. Go ahead, we are committed to helping you grow your business!</div>
 
         <form @submit.prevent="submit">
             <div class="m-3 text-center">
                 <div class="px-3">
                     <span class="p-float-label">
-                        <pv-input-text v-model="name"></pv-input-text>
-                        <label for="name">Name</label>
+                        <pv-input-text v-model="workshopName"></pv-input-text>
+                        <label for="workshopName">Business name</label>
                     </span>
                 </div>
             </div>
@@ -29,8 +30,8 @@
             <div class="m-3 text-center">
                 <div class="px-3">
                     <span class="p-float-label">
-                        <pv-input-text type="password" v-model="password"></pv-input-text>
-                        <label for="password">Password</label>
+                        <pv-input-text v-model="phone"></pv-input-text>
+                        <label for="phone">Phone</label>
                     </span>
                 </div>
             </div>
@@ -38,13 +39,31 @@
             <div class="m-3 text-center">
                 <div class="px-3">
                     <span class="p-float-label">
-                        <pv-dropdown required v-model="role" :options="roles" optionLabel="name" placeholder="Select a Role" ></pv-dropdown>
+                        <pv-input-text v-model="ownerName"></pv-input-text>
+                        <label for="ownerName">Owner's name</label>
                     </span>
                 </div>
             </div>
 
+            <div class="m-3 text-center">
+                <div class="px-3">
+                    <span class="p-float-label">
+                        <pv-input-text v-model="ownerName"></pv-input-text>
+                        <label for="ownerName">Tell us about your business</label>
+                    </span>
+                </div>
+            </div>
 
-            <div class="button w-full text-center my-5">
+            <div class="m-3 text-center">
+                <div class="px-3">
+                    <span class="p-float-label">
+                        <pv-input-text type="password" v-model="password"></pv-input-text>
+                        <label for="password">Password</label>
+                    </span>
+                </div>
+            </div>
+
+            <div class="button w-full text-center my-2">
                     <pv-button type="submit" class="w-full" label = "Sign Up"></pv-button>
             </div>
         </form>
@@ -64,15 +83,12 @@ export default {
     name: 'sign-up',
     data:() => {
         return{
-            name: null,
+            workshopName: null,
             email: null,
+            ownerName: null,
             password: null,
-            role: null,
-            errors:[],
-            roles: [
-			{name: 'Mechanic', value: 'mechanic'},
-			{name: 'Customer', value: 'customer'},
-        ]
+            description: null,
+            errors:[]
         };
     },
 
@@ -104,10 +120,11 @@ export default {
         },
 
         resetForm(){
-            this.name = null;
+            this.workshopName = null;
             this.email = null;
+            this.ownerName = null;
+            this.description = null;
             this.password = null;
-            this.role = null;
         },  
     },
 };
