@@ -105,10 +105,10 @@ const goToCustomerSignUpPage = () => {
         <div class="text-center">
           <div>Don't have an account? </div>
           <div class="p-2">
-            <q-btn type="submit" class="w-full" label="Register as a mechanic" @click="goToMechanicSignUpPage"/>
+            <q-btn class="w-full" label="Register as a mechanic" @click="goToMechanicSignUpPage"/>
           </div>
           <div class="p-2">
-            <q-btn type="submit" class="w-full" label="Register as a customer" @click="goToCustomerSignUpPage"/>
+            <q-btn class="w-full" label="Register as a customer" @click="goToCustomerSignUpPage"/>
           </div>
         </div>
       </div>
