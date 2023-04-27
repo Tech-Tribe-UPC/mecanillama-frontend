@@ -1,7 +1,13 @@
 import { createApp } from 'vue'
+import { Quasar } from 'quasar'
 import App from './App.vue'
 import router from './router'
 import PrimeVue from "primevue/config";
+// Import icon libraries
+import '@quasar/extras/material-icons/material-icons.css'
+
+// Import Quasar css
+import 'quasar/src/css/index.sass'
 
 // PrimeVue Styles
 import "primevue/resources/themes/md-light-indigo/theme.css";
@@ -29,13 +35,16 @@ import Carousel from 'primevue/carousel';
 import Rating from 'primevue/rating';
 import Textarea from 'primevue/textarea';
 import Calendar from 'primevue/calendar';
-
 // PrimeFlex Companion
 import "primeflex/primeflex.css";
 
 const app = createApp(App)
 
 app.use(router)
+
+app.use(Quasar, {
+    plugins: {}, // import Quasar plugins and add here
+  })
 
 // PrimeVue Configuration
 app.use(PrimeVue, { ripple: true });
