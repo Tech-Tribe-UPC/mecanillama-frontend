@@ -2,8 +2,10 @@
 import { ref, reactive } from "vue";
 import { useQuasar } from 'quasar';
 import { useRouter, RouterLink } from "vue-router";
+import { AuthService } from '../services/auth.service'
 
-const $q = useQuasar()
+const $q = useQuasar();
+const authService = new AuthService();
 const mechanic = reactive({
     name: "",
     email: "",
@@ -32,14 +34,15 @@ const phoneRules = [val => (val && val.length > 0) || 'Este campo es obligatorio
 const cityRules = [val => (val && val.length > 0) || 'Este campo es obligatorio'];
 
 const validateData = () => {
-    let valid = false
-    nameRef.value.validate()
-    lastNameRef.value.validate()
-    emailRef.value.validate()
-    passwordRef.value.validate()
-    confirmPasswordRef.value.validate()
+    let valid = false;
+    nameRef.value.validate();
+    descriptionRef.value.validate();
+    cityRef.value.validate();
+    passwordRef.value.validate();
+    phoneRef.value.validate();
+    emailRef.value.validate();
 
-    if (nameRef.value.hasError || lastNameRef.value.hasError || emailRef.value.hasError) {
+    if (emailRef.value.hasError || passwordRef.value.hasError || phoneRef.value.hasError) {
         $q.notify({
             color: 'negative',
             message: 'No se pudo registrar. Verifique sus datos.',
@@ -60,8 +63,17 @@ const validateData = () => {
 }
 
 const handleSignUp = async () => {
-    const validData = validateData();
-    //const status = await    
+    if (authService.registerMechanic(mechanic) && validateData()) {
+        router.push("/sign-in");
+    } else {
+        $q.notify({
+            color: 'negative',
+            message: 'No se pudo registrar. Verifique sus datos.',
+            actions: [
+                { label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }
+            ]
+        })
+    }
 }
 
 </script>
@@ -123,7 +135,7 @@ const handleSignUp = async () => {
                     </div>
 
                     <div class="button w-full text-center my-2">
-                        <q-btn type="submit" class="w-full" label="Sign Up" @click="goToMechanicSignUpPage" />
+                        <q-btn type="submit" class="w-full" label="Sign Up" @click="handleSignUp" />
                     </div>
                 </form>
                 <div class="text-center">
