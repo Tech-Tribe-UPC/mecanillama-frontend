@@ -1,9 +1,6 @@
 import axios from "axios";
 import http from "../../core/services/http-common";
-
-
-const API_URL = "https://mecanillama-api.azurewebsites.net/api/v1/users/sign-up";
-const API_URL_SIGNIN = "https://mecanillama-api.azurewebsites.net/api/v1/users/sign-in";
+import { useAuthStore } from '../../stores/auth.store.js';
 
 class AuthService {
     async registerMechanic(mechanic){
@@ -36,12 +33,6 @@ class AuthService {
         }
     }
 
-    signIn(user){
-        return http.post(API_URL_SIGNIN, user);
-    }
-    // Get Current User
-    getCurrentUser() {
-        return localStorage.getItem("user");
-      }
+    //add update and delete methods IF NECESSARY
 }
 export default new AuthService();

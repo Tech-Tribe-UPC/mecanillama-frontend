@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { Quasar, Notify, Dialog, Loading } from 'quasar'
+import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import PrimeVue from "primevue/config";
@@ -38,8 +39,9 @@ import Calendar from 'primevue/calendar';
 import "primeflex/primeflex.css";
 
 const app = createApp(App)
-
+const pinia = createPinia()
 app.use(router)
+app.use(pinia)
 
 app.use(Quasar, {
   plugins: {
