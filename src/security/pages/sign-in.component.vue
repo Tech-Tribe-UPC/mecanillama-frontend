@@ -44,8 +44,12 @@
           </div>
         </form>
         <div>
-          <span>Don't have an account? </span>
-          <a href="/sign-up" class="font-semibold">Sign up!</a>
+          <div>Don't have an account? </div>
+          <div>
+          <a href="/auth/signup/mechanic" class="font-semibold">Sign up as a mechanic</a>
+        </div>
+        <div><a href="/auth/signup/driver" class="font-semibold">Sign up as a driver</a>
+        </div>
         </div>
       </div>
     </div>
