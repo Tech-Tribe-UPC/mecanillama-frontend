@@ -32,7 +32,7 @@ const router = createRouter({
     {
       path: '/auth/signup/mechanic',
       name: 'signup',
-      component: () => import('../security/pages/sign-up.component.vue')
+      component: () => import('../security/pages/sign-up-mechanic.component.vue')
     },
     {
       path: '/auth/signup/driver',

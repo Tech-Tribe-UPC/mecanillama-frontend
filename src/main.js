@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import { Quasar } from 'quasar'
+import { Quasar, Notify, Dialog, Loading } from 'quasar'
 import App from './App.vue'
 import router from './router'
 import PrimeVue from "primevue/config";
@@ -22,7 +22,6 @@ import MenuBar from "primevue/menubar";
 import InputText from "primevue/inputtext";
 import Sidebar from "primevue/sidebar";
 import Row from "primevue/row";
-import Dialog from "primevue/dialog";
 import Toast from "primevue/toast";
 import Dropdown from "primevue/dropdown";
 import Tag from "primevue/tag";
@@ -43,7 +42,15 @@ const app = createApp(App)
 app.use(router)
 
 app.use(Quasar, {
-    plugins: {}, // import Quasar plugins and add here
+  plugins: {
+    Notify,
+    Dialog,
+    Loading
+},
+config: {
+  notify: { /* look at QuasarConfOptions from the API card */ },
+  loading: { /* look at QuasarConfOptions from the API card */ }
+} // import Quasar plugins and add here
   })
 
 // PrimeVue Configuration
@@ -59,7 +66,6 @@ app.component("pv-toolbar", Toolbar);
 app.component("pv-input-text", InputText);
 app.component("pv-sidebar", Sidebar);
 app.component("pv-row", Row);
-app.component("pv-dialog", Dialog);
 app.component("pv-toast", Toast);
 app.component("pv-dropdown", Dropdown);
 app.component("pv-tag", Tag);
