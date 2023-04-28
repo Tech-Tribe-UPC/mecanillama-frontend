@@ -1,7 +1,14 @@
 import { createApp } from 'vue'
+import { Quasar, Notify, Dialog, Loading } from 'quasar'
+import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import PrimeVue from "primevue/config";
+// Import icon libraries
+import '@quasar/extras/material-icons/material-icons.css'
+
+// Import Quasar css
+import 'quasar/src/css/index.sass'
 
 // PrimeVue Styles
 import "primevue/resources/themes/md-light-indigo/theme.css";
@@ -16,7 +23,6 @@ import MenuBar from "primevue/menubar";
 import InputText from "primevue/inputtext";
 import Sidebar from "primevue/sidebar";
 import Row from "primevue/row";
-import Dialog from "primevue/dialog";
 import Toast from "primevue/toast";
 import Dropdown from "primevue/dropdown";
 import Tag from "primevue/tag";
@@ -29,13 +35,25 @@ import Carousel from 'primevue/carousel';
 import Rating from 'primevue/rating';
 import Textarea from 'primevue/textarea';
 import Calendar from 'primevue/calendar';
-
 // PrimeFlex Companion
 import "primeflex/primeflex.css";
 
 const app = createApp(App)
-
+const pinia = createPinia()
 app.use(router)
+app.use(pinia)
+
+app.use(Quasar, {
+  plugins: {
+    Notify,
+    Dialog,
+    Loading
+},
+config: {
+  notify: { /* look at QuasarConfOptions from the API card */ },
+  loading: { /* look at QuasarConfOptions from the API card */ }
+} // import Quasar plugins and add here
+  })
 
 // PrimeVue Configuration
 app.use(PrimeVue, { ripple: true });
@@ -50,7 +68,6 @@ app.component("pv-toolbar", Toolbar);
 app.component("pv-input-text", InputText);
 app.component("pv-sidebar", Sidebar);
 app.component("pv-row", Row);
-app.component("pv-dialog", Dialog);
 app.component("pv-toast", Toast);
 app.component("pv-dropdown", Dropdown);
 app.component("pv-tag", Tag);

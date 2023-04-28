@@ -1,21 +1,39 @@
 import axios from "axios";
 import http from "../../core/services/http-common";
+import { useAuthStore } from '../../stores/auth.store.js';
 
-
-const API_URL = "https://mecanillama-api.azurewebsites.net/api/v1/users/sign-up";
-const API_URL_SIGNIN = "https://mecanillama-api.azurewebsites.net/api/v1/users/sign-in";
-
-class AuthService {
-    signUp(user) {
-        return http.post(API_URL, user);
+export class AuthService {
+    async registerMechanic(mechanic){
+        try {
+            const response = await http.post("mechanics/auth/sign-up", mechanic);
+            if(response.status !== 200) return false;
+            return true;
+        } catch (err) {
+            return false;
+        }
     }
 
-    signIn(user){
-        return http.post(API_URL_SIGNIN, user);
+    async registerCustomer(customer){
+        try {
+            await http.post("customers/auth/sign-up", customer);
+            return true;
+        } catch (err) {
+            return false;
+        }
     }
-    // Get Current User
-    getCurrentUser() {
-        return localStorage.getItem("user");
-      }
+
+    async login(user){
+        try {
+            const response = await http.post(`users/auth/sign-in`, user);
+            const authStore = useAuthStore()
+            authStore.login(response.data)
+            if(response.status !== 200) return false;
+            return true;
+        } catch (err) {
+            return false;
+        }
+    }
+
+    //add update and delete methods IF NECESSARY
 }
-export default new AuthService();
+

@@ -30,9 +30,14 @@ const router = createRouter({
       component: () => import('../security/pages/sign-in.component.vue')
     },
     {
-      path: '/sign-up',
+      path: '/auth/signup/mechanic',
       name: 'signup',
-      component: () => import('../security/pages/sign-up.component.vue')
+      component: () => import('../security/pages/sign-up-mechanic.component.vue')
+    },
+    {
+      path: '/auth/signup/driver',
+      name: 'signup-driver',
+      component: () => import('../security/pages/sign-up-driver.component.vue')
     },
     {
       path: '/home-customer',
