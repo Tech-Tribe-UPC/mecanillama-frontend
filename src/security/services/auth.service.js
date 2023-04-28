@@ -2,7 +2,7 @@ import axios from "axios";
 import http from "../../core/services/http-common";
 import { useAuthStore } from '../../stores/auth.store.js';
 
-class AuthService {
+export class AuthService {
     async registerMechanic(mechanic){
         try {
             await http.post("mechanics/auth/sign-up", mechanic);
@@ -35,4 +35,4 @@ class AuthService {
 
     //add update and delete methods IF NECESSARY
 }
-export default new AuthService();
+

@@ -2,8 +2,11 @@
 import { ref, reactive } from "vue";
 import { useQuasar } from 'quasar';
 import { useRouter, RouterLink } from "vue-router";
+import { AuthService } from '../services/auth.service';
 
-const $q = useQuasar()
+const authService = new AuthService();
+
+const $q = useQuasar();
 const user = reactive({
   email: "",
   password: ""
@@ -42,7 +45,7 @@ const validateData = () => {
 
 const handleSubmit = async () => {
   const validData = validateData();
-  const status = await authService.login(user);
+  const status = authService.login(user);
   if (status && validData) {
     $q.notify({
       icon: 'done',
@@ -50,7 +53,7 @@ const handleSubmit = async () => {
       message: 'Usuario autenticado.',
       actions: [{ label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }]
     })
-    router.push("/calculator");
+    //router.push("/calculator");
   } else {
     $q.notify({
       color: 'negative',
@@ -62,7 +65,7 @@ const handleSubmit = async () => {
   }
 }
 
-const goToMechanicSignUpPage = () =>{
+const goToMechanicSignUpPage = () => {
   router.push("/auth/signup/mechanic");
 }
 
@@ -99,16 +102,16 @@ const goToCustomerSignUpPage = () => {
           </div>
 
           <div class="button w-full text-center my-2">
-            <q-btn type="submit" class="w-full" label="Sign In" />
+            <q-btn type="submit" class="w-full" label="Sign In" @click="handleSubmit" />
           </div>
         </form>
         <div class="text-center">
           <div>Don't have an account? </div>
           <div class="p-2">
-            <q-btn class="w-full" label="Register as a mechanic" @click="goToMechanicSignUpPage"/>
+            <q-btn class="w-full" label="Register as a mechanic" @click="goToMechanicSignUpPage" />
           </div>
           <div class="p-2">
-            <q-btn class="w-full" label="Register as a customer" @click="goToCustomerSignUpPage"/>
+            <q-btn class="w-full" label="Register as a customer" @click="goToCustomerSignUpPage" />
           </div>
         </div>
       </div>
