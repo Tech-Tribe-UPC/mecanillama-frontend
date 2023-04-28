@@ -10,9 +10,9 @@ const mechanic = reactive({
     name: "",
     email: "",
     password: "",
-    phone: "",
+    address: "",
     description: "",
-    city: ""
+    phone: ""
 });
 const router = useRouter();
 //validation settings
@@ -63,8 +63,10 @@ const validateData = () => {
 }
 
 const handleSignUp = async () => {
+    console.log(mechanic)
     if (authService.registerMechanic(mechanic) && validateData()) {
         router.push("/sign-in");
+        console.log("Se registro al usuario!");
     } else {
         $q.notify({
             color: 'negative',
@@ -118,7 +120,7 @@ const handleSignUp = async () => {
 
                     <div class="text-center">
                         <div class="">
-                            <q-input ref="cityRef" filled v-model="mechanic.city" label="City" :rules="cityRules"/>
+                            <q-input ref="cityRef" filled v-model="mechanic.address" label="City" :rules="cityRules"/>
                         </div>
                     </div>
 

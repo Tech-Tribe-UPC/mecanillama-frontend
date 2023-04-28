@@ -5,7 +5,8 @@ import { useAuthStore } from '../../stores/auth.store.js';
 export class AuthService {
     async registerMechanic(mechanic){
         try {
-            await http.post("mechanics/auth/sign-up", mechanic);
+            const response = await http.post("mechanics/auth/sign-up", mechanic);
+            if(response.status !== 200) return false;
             return true;
         } catch (err) {
             return false;
