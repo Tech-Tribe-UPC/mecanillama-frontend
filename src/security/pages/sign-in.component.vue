@@ -57,7 +57,7 @@ const handleSubmit = async () => {
       actions: [{ label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }]
     })
     //use store to identify user type and redirect based on that
-    if(auth.value.hasOwnProperty("description")){
+    if(auth.value.user.description){
       router.push("/home-mechanic");
     }else{
       router.push("/home-customer")
