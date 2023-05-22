@@ -1,30 +1,3 @@
-<template>
-  <mechanic-header-component></mechanic-header-component>
-
-  <div class="container">
-    <div id="sup" class="container">
-      <img
-        src="https://images.unsplash.com/photo-1588993986550-6ae221c7146e?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=460"
-      />
-      <div>
-        <span>
-          <h1 class="mb-1">{{ mechanic.name }}</h1>
-          <p class="m-1">
-            {{ mechanic.description }}
-          </p>
-          <router-link to="">
-            <pv-button id="button" label="Edit" />
-          </router-link>
-        </span>
-      </div>
-    </div>
-    <div>
-      <appointments-mechanic-component></appointments-mechanic-component>
-    </div>
-  </div>
-</template>
-
-
 <script>
 import MechanicHeaderComponent from "../../components/mechanic-header.component.vue";
 import appointmentsMechanicComponent from "../../appointments/pages/appointments-mechanic.component.vue";
@@ -54,6 +27,32 @@ export default {
   },
 };
 </script>
+
+<template>
+  <mechanic-header-component></mechanic-header-component>
+
+  <div class="container">
+    <div id="sup" class="container">
+      <img
+        src="https://images.pexels.com/photos/104836/speed-car-vehicle-drive-104836.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      />
+      <div>
+        <span>
+          <h3 class="mb-1">The Mechanic Shop</h3>
+          <p class="m-1">
+            The Mechanic Shop is your one-stop-shop for all your auto repair needs
+          </p>
+          <router-link to="">
+            <pv-button id="button" label="Edit" />
+          </router-link>
+        </span>
+      </div>
+    </div>
+    <div>
+      <appointments-mechanic-component></appointments-mechanic-component>
+    </div>
+  </div>
+</template>
 
 <style>
 #sup {

@@ -5,7 +5,7 @@
         <div class = "flex">
             <div class="m-3">
                 <RouterLink to="/home-mechanic">
-                    <h1 class="font-bold">Mecanillama</h1>
+                    <div class="font-bold text-2xl">Mecanillama</div>
                 </RouterLink>
             </div>
         </div>
@@ -20,8 +20,8 @@
         </div>    
             <div class="flex align-items-center justify-content-center cursor-pointer profile text-center">
                 <menu-bar :model="accountMenu"></menu-bar>
-                <pv-avatar image="https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&auto=format&fit=crop&w=128"  class="mr-2" size="large" shape="circle" />
-                <span>Formula I</span>
+                <pv-avatar image="https://images.pexels.com/photos/104836/speed-car-vehicle-drive-104836.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"  class="mr-2" size="large" shape="circle" />
+                <span>The Mechanic Shop</span>
             </div>
         </div>
     </template>

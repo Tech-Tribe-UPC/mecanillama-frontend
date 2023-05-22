@@ -1,10 +1,13 @@
 <script setup>
-import { ref, reactive } from "vue";
+import { computed, ref, reactive } from "vue";
 import { useQuasar } from 'quasar';
 import { useRouter, RouterLink } from "vue-router";
 import { AuthService } from '../services/auth.service';
+import { useAuthStore } from '../../stores/auth.store.js';
 
 const authService = new AuthService();
+const UserStore = useAuthStore();
+const auth = computed(() => UserStore.user);
 
 const $q = useQuasar();
 const user = reactive({
@@ -45,7 +48,7 @@ const validateData = () => {
 
 const handleSubmit = async () => {
   const validData = validateData();
-  const status = authService.login(user);
+  const status = await authService.login(user);
   if (status && validData) {
     $q.notify({
       icon: 'done',
@@ -53,7 +56,12 @@ const handleSubmit = async () => {
       message: 'Usuario autenticado.',
       actions: [{ label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }]
     })
-    //router.push("/calculator");
+    //use store to identify user type and redirect based on that
+    if(auth.value.hasOwnProperty("description")){
+      router.push("/home-mechanic");
+    }else{
+      router.push("/home-customer")
+    }
   } else {
     $q.notify({
       color: 'negative',

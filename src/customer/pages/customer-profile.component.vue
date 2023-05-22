@@ -5,7 +5,6 @@
 
 <script>
 import customerHeaderComponent from "../../components/customer-header.component.vue";
-import AuthService from '../../security/services/auth.service.js'
 
 export default {
   name: "customer-profile",
@@ -14,8 +13,7 @@ export default {
   },
   methods: {
       getUserName(){
-        const user=JSON.parse(AuthService.getCurrentUser());
-        return user.email;
+       
       }
   }
 }
