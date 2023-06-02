@@ -5,21 +5,13 @@
         <div class="flex">
           <div class="m-3">
             <RouterLink to="/home-customer">
-              <h1 class="font-bold">Mecanillama</h1>
+              <div class="font-bold text-2xl">Mecchanio</div>
             </RouterLink>
           </div>
         </div>
       </template>
       <template #end>
         <div class="flex">
-          <div class="m-3 search-input w-full">
-            <pv-input-text
-              v-model="search"
-              @click="handleSearch"
-              class="border-round p-3 px-3 w-full"
-              placeholder="Search that mechanic here..."
-            />
-          </div>
           <div
             class="
               flex
@@ -37,7 +29,15 @@
               size="large"
               shape="circle"
             />
-            <span>{{customerName}}</span>
+            <span>John Doe</span>
+          </div>
+          <div class="m-3 search-input w-full">
+            <pv-input-text
+              v-model="search"
+              @click="handleSearch"
+              class="border-round p-3 px-3 w-full"
+              placeholder="Search that mechanic here..."
+            />
           </div>
         </div>
       </template>
@@ -91,12 +91,12 @@ export default {
     this.customerId = localStorage.getItem("user");
     console.log(this.customerId);
     
-    this.customerUserService.getByUserId(this.customerId).then((response) => {
+    // this.customerUserService.getByUserId(this.customerId).then((response) => {
       
-      this.customer = response.data;
-      this.customerName = response.data.name;
-      console.log(this.customer);
-    });
+    //   this.customer = response.data;
+    //   this.customerName = response.data.name;
+    //   console.log(this.customer);
+    // });
   },
   methods: {
     handleSearch() {
