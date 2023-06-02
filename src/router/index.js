@@ -73,6 +73,11 @@ const router = createRouter({
       path: "/mechanic-admin/home",
       name: "mechanic-admin-home",
       component: () => import("../mechanic/pages/home-mechanic.component.vue"),
+    },
+    {
+      path: "/mechanic/services",
+      name: "mechanic-services",
+      component: () => import("../services/pages/services.component.vue"),
     }
   ]
 })
