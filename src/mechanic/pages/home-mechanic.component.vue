@@ -21,7 +21,7 @@ const auth = computed(() => userStore.user);
         />
         <div class="flex-1 mx-4">
           <div class="text-center">  
-            <div class="text-3xl font-semibold mb-1">Your business's data:</div>
+            <div class="text-3xl mb-1">Your business's data:</div>
             <div class="text-3xl font-semibold mb-1">{{ auth.user.name }}</div>
             <div class="text-xl m-2">{{ auth.user.address }}</div>
             <div class="text-xl m-2">{{ auth.user.phone }}</div>

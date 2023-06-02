@@ -5,7 +5,7 @@
         <div class = "flex">
             <div class="m-3">
                 <RouterLink to="/home-mechanic">
-                    <div class="font-bold text-2xl">Mecanillama</div>
+                    <div class="font-bold text-2xl">Mecchanio</div>
                 </RouterLink>
             </div>
         </div>
@@ -38,6 +38,7 @@ export default{
             navigation:[
                 { label: "Home",icon:'pi pi-fw pi-home', to: "/home-customer" },
                 { label: "Appointments", icon:'pi pi-fw pi-calendar',to: "/appointments-customer" },
+                { label: "Services", icon:'pi pi-fw pi-car', to: "/services" },
                 { label: "Notifications", icon:'pi pi-fw pi-bell', to: "/notifications" },
             ],
             accountMenu: [{

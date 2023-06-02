@@ -5,7 +5,7 @@
         <div class="flex">
           <div class="m-3">
             <RouterLink to="/home-customer">
-              <div class="font-bold text-2xl">Mecanillama</div>
+              <div class="font-bold text-2xl">Mecchanio</div>
             </RouterLink>
           </div>
         </div>
