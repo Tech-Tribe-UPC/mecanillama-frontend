@@ -26,7 +26,6 @@ export class AuthService {
         try {
             const response = await http.post(`users/auth/sign-in`, user);
             const authStore = useAuthStore()
-            console.log(response.data)
             authStore.login(response.data)
             if(response.status !== 200) return false;
             return true;

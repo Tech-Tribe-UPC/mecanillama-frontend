@@ -5,7 +5,7 @@ export class ServicesApiService {
     return http.get(`/services/${id}`);
   }
   getByMechanicId(mechanicId) {
-    return http.get(`/services/${mechanicId}`);
+    return http.get(`/mechanics/${mechanicId}/services`);
   }
   create(data) {
     return http.post("/services", data);

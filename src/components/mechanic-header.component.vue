@@ -36,8 +36,8 @@ export default{
     data(){
         return{
             navigation:[
-                { label: "Home",icon:'pi pi-fw pi-home', to: "/home-customer" },
-                { label: "Appointments", icon:'pi pi-fw pi-calendar',to: "/appointments-customer" },
+                { label: "Home",icon:'pi pi-fw pi-home', to: "/home-mechanic" },
+                { label: "Appointments", icon:'pi pi-fw pi-calendar',to: "/appointments-mechanic" },
                 { label: "Services", icon:'pi pi-fw pi-car', to: "/mechanic/services" },
                 { label: "Notifications", icon:'pi pi-fw pi-bell', to: "/notifications" },
             ],
