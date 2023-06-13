@@ -1,5 +1,4 @@
-<template>
-        <div>
+<template>        <div>
             <div class="m-6">
                 <pv-toolbar class="mb-4">
                 </pv-toolbar>

@@ -3,7 +3,7 @@
 
     <div class="container m-2">
         <div>
-            <div class="text-3xl font-semibold mb-1 text-center">You are currently offering the following services:</div>
+            <div data-testid="component-title" class="text-3xl font-semibold mb-1 text-center">You are currently offering the following services:</div>
         </div>
         <div class="q-pa-md row items-start q-gutter-md">
 
